@@ -1,0 +1,99 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #1a1d2d;
+    --primary-panel-bg: #2a2f4a;
+    --secondary-panel-bg: #202442;
+    --border-color: #4a4e69;
+    --primary-text-color: #e0e1e6;
+    --secondary-text-color: #9fa2b4;
+    --accent-color: #ffc857; /* Gold */
+    --accent-glow: rgba(255, 200, 87, 0.5);
+    --unlocked-color: #34d399; /* Green */
+    --inherited-color: #60a5fa; /* Blue */
+    --locked-color: #4a4e69;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+html, body { height: 100%; overflow: hidden; }
+
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--primary-text-color); }
+.app-container { display: grid; grid-template-columns: 300px 2fr 1fr; height: 100vh; gap: 1rem; padding: 1rem; }
+.panel { background-color: var(--primary-panel-bg); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; }
+.panel header { margin-bottom: 1.5rem; }
+.panel header h2 { font-family: var(--font-heading); color: var(--accent-color); }
+.panel header p { color: var(--secondary-text-color); font-size: 0.9rem; }
+
+/* --- Class Hierarchy Panel --- */
+.class-panel { position: relative; }
+.hierarchy-container { flex-grow: 1; position: relative; }
+.class-node {
+    position: absolute;
+    background-color: var(--secondary-panel-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    cursor: grab;
+    transition: all 0.2s ease;
+    width: 200px;
+    text-align: center;
+}
+.class-node.selected { border-color: var(--accent-color); box-shadow: 0 0 15px var(--accent-glow); transform: scale(1.05); }
+.class-node.drag-over { border-style: dashed; }
+.class-node:active { cursor: grabbing; }
+.skill-points-info { font-size: 0.8rem; color: var(--secondary-text-color); margin-top: 0.25rem; }
+.add-class-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
+#new-class-name { flex-grow: 1; background-color: var(--bg-color); border: 1px solid var(--border-color); color: var(--primary-text-color); border-radius: 6px; padding: 0.5rem; }
+#add-class-btn { background-color: var(--accent-color); border: none; color: var(--bg-color); font-weight: 600; border-radius: 6px; padding: 0 1rem; cursor: pointer; }
+.hierarchy-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.hierarchy-svg .connector { stroke: var(--border-color); stroke-width: 2; fill: none; }
+
+/* --- Skill Tree Panel --- */
+.skill-panel { overflow: hidden; }
+#skill-tree-header { display: flex; justify-content: space-between; align-items: center; }
+#skill-point-display { font-weight: 600; color: var(--accent-color); }
+#skill-point-display.hidden { display: none; }
+.skill-tree-container { flex-grow: 1; position: relative; overflow: auto; background-image: radial-gradient(var(--secondary-panel-bg) 1px, transparent 1px); background-size: 15px 15px; }
+.skill-node {
+    position: absolute;
+    width: 80px; height: 80px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border: 2px solid var(--locked-color);
+    background-color: var(--primary-panel-bg);
+    border-radius: 12px;
+    padding: 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.skill-icon { font-size: 1.8rem; }
+.skill-name { font-size: 0.75rem; font-weight: 600; margin-top: 2px; }
+.skill-cost { position: absolute; bottom: -10px; right: -5px; background-color: var(--accent-color); color: var(--bg-color); font-size: 0.7rem; font-weight: 700; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; }
+/* Skill States */
+.skill-node.can-unlock { border-color: var(--secondary-text-color); }
+.skill-node.can-unlock:hover { border-color: var(--accent-color); transform: scale(1.1); }
+.skill-node.unlocked { border-color: var(--unlocked-color); box-shadow: 0 0 15px var(--unlocked-color); }
+.skill-node.inherited { border-color: var(--inherited-color); box-shadow: 0 0 15px var(--inherited-color); cursor: not-allowed; }
+.skill-tree-svg { position: absolute; top: 0; left: 0; width: 2000px; height: 2000px; /* Large size for panning */ pointer-events: none; }
+.skill-tree-svg .connector { stroke: var(--locked-color); stroke-width: 2; fill: none; }
+.skill-tree-svg .connector.unlocked { stroke: var(--unlocked-color); }
+.skill-tree-svg .connector.inherited { stroke: var(--inherited-color); }
+
+/* --- Simulation Panel --- */
+#sim-class-name { color: var(--accent-color); }
+.actions-list { list-style: none; padding: 0; }
+.action-item {
+    background-color: var(--secondary-panel-bg);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.action-item.enabled { opacity: 1; }
+.action-icon { font-size: 1.2rem; }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Access Control Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Panel 1: RBAC Dashboard -->
+        <aside class="panel rbac-panel">
+            <header>
+                <h2>RBAC Dashboard</h2>
+                <p>Define roles and their permissions.</p>
+            </header>
+            
+            <div class="section-container">
+                <h3>Roles</h3>
+                <ul id="roles-list" class="roles-list scrollable">
+                    <!-- Roles will be dynamically inserted here -->
+                </ul>
+                <form id="add-role-form" class="add-form">
+                    <input type="text" id="new-role-name" placeholder="New Role Name" required>
+                    <button type="submit">+</button>
+                </form>
+            </div>
+
+            <div id="permissions-container" class="section-container hidden">
+                <h3>Permissions for <span id="selected-role-name"></span></h3>
+                <div id="permissions-list" class="permissions-list"></div>
+            </div>
+        </aside>
+
+        <!-- Panel 2: Simulation Area -->
+        <main class="panel simulation-panel">
+            <header class="simulation-header">
+                <h2>Secure File Vault</h2>
+                <div class="user-selector">
+                    <label for="user-select">Log in as:</label>
+                    <select id="user-select"></select> <!-- Will be populated with roles -->
+                </div>
+            </header>
+
+            <div id="unsecured-files-wrapper" class="unsecured-wrapper">
+                <div id="unsecured-files" class="file-area unsecured-area scrollable" data-permission-required="MOVE_FROM_UNSECURED">
+                    <div class="area-title">Unsecured Desk</div>
+                    <!-- Files will be dynamically inserted here -->
+                </div>
+                <form id="add-file-form" class="add-form">
+                    <input type="text" id="new-file-name" placeholder="New File Name" required>
+                    <button type="submit">+</button>
+                </form>
+            </div>
+            
+            <div class="vaults-container">
+                <div id="vault-1" class="file-area vault scrollable" data-permission-required="MOVE_TO_VAULT_1">
+                    <div class="area-title">Vault Alpha (Lvl 1)</div>
+                </div>
+                <div id="vault-2" class="file-area vault scrollable" data-permission-required="MOVE_TO_VAULT_2">
+                    <div class="area-title">Vault Gamma (Lvl 2)</div>
+                </div>
+                <div id="vault-3" class="file-area vault scrollable" data-permission-required="MOVE_TO_VAULT_3">
+                    <div class="area-title">Vault Omega (Lvl 3)</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Panel 3: Activity Log -->
+        <footer class="panel log-panel">
+            <header>
+                <h2>Activity Log</h2>
+            </header>
+            <ul id="activity-log" class="activity-log scrollable">
+                <!-- Log entries will be prepended here -->
+            </ul>
+        </footer>
+    </div>
+    
+    <!-- HTML Templates -->
+    <template id="file-template">
+        <div class="file" draggable="true">
+            <span class="file-icon"></span>
+            <span class="file-name"></span>
+            <button class="delete-file-btn">×</button>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

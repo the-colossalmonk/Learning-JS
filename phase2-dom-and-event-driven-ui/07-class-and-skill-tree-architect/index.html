@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class & Skill Tree Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Panel 1: Class Hierarchy -->
+        <aside class="panel class-panel">
+            <header>
+                <h2>Class Architect</h2>
+                <p>Create classes and drag to set inheritance.</p>
+            </header>
+            <div id="class-hierarchy" class="hierarchy-container">
+                <!-- Class nodes will be dynamically inserted here -->
+            </div>
+            <div class="add-class-form">
+                <input type="text" id="new-class-name" placeholder="New Class Name">
+                <button id="add-class-btn">Add Class</button>
+            </div>
+            <svg id="hierarchy-svg" class="hierarchy-svg"></svg>
+        </aside>
+
+        <!-- Panel 2: Skill Tree -->
+        <main class="panel skill-panel">
+            <header>
+                <div id="skill-tree-header">
+                    <h2>Skill Tree</h2>
+                    <div id="skill-point-display" class="hidden">
+                        Skill Points: <span id="skill-points"></span>
+                    </div>
+                </div>
+                <p>Click a skill to unlock it for the selected class.</p>
+            </header>
+            <div id="skill-tree" class="skill-tree-container">
+                <!-- Skill nodes will be dynamically inserted here -->
+            </div>
+            <svg id="skill-tree-svg" class="skill-tree-svg"></svg>
+        </main>
+
+        <!-- Panel 3: Simulation -->
+        <aside class="panel simulation-panel">
+            <header>
+                <h2>Character Simulation</h2>
+                <p>Actions available to <strong id="sim-class-name">No Class</strong>.</p>
+            </header>
+            <ul id="simulation-actions" class="actions-list">
+                <!-- Available actions will be dynamically inserted here -->
+            </ul>
+        </aside>
+    </div>
+
+    <!-- HTML Templates -->
+    <template id="class-node-template">
+        <div class="class-node" draggable="true">
+            <h3 class="class-name"></h3>
+            <div class="skill-points-info"></div>
+        </div>
+    </template>
+    
+    <template id="skill-node-template">
+        <div class="skill-node">
+            <div class="skill-icon"></div>
+            <span class="skill-name"></span>
+            <span class="skill-cost"></span>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

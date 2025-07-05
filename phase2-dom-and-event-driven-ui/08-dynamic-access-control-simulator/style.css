@@ -1,0 +1,98 @@
+/* --- Global Styles & Variables (Pastel Theme) --- */
+:root {
+    --bg-color: #f4f7f9;
+    --primary-panel-bg: #ffffff;
+    --secondary-panel-bg: #f9fafb;
+    --border-color: #e5e7eb;
+    --primary-text-color: #1f2937;
+    --secondary-text-color: #6b7280;
+    --accent-color: #818cf8; /* Pastel Indigo */
+    --accent-color-light: #eef2ff;
+    --denied-color: #f97316; /* Pastel Orange */
+    --font-sans: 'Poppins', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--primary-text-color); }
+
+/* --- Layout --- */
+/* CHANGE: Adjusted grid rows to give more space to the simulation panel */
+.app-container { display: grid; grid-template-columns: 350px 1fr; grid-template-rows: 2fr 1fr; height: 100vh; gap: 1rem; padding: 1rem; }
+.rbac-panel { grid-row: 1 / 3; }
+.simulation-panel { grid-column: 2 / 3; display: flex; flex-direction: column; }
+.log-panel { grid-column: 2 / 3; }
+.panel {
+    background-color: var(--primary-panel-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+.panel header { margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-shrink: 0; }
+.panel header h2 { font-size: 1.5rem; }
+.panel header p { color: var(--secondary-text-color); font-size: 0.9rem; }
+
+/* --- Utility --- */
+.scrollable { overflow-y: auto; }
+
+/* --- RBAC Panel --- */
+.section-container { margin-bottom: 1.5rem; display: flex; flex-direction: column; min-height: 0; }
+.section-container h3 { margin-bottom: 1rem; color: var(--accent-color); font-weight: 600; }
+.roles-list { list-style: none; padding: 0; flex-grow: 1; }
+.role-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; border: 1px solid transparent; }
+.role-item:hover { background-color: var(--secondary-panel-bg); }
+.role-item.active { background-color: var(--accent-color-light); border-color: var(--accent-color); color: var(--accent-color); font-weight: 600; }
+.delete-role-btn { background: none; border: none; color: var(--secondary-text-color); cursor: pointer; font-size: 1.2rem; opacity: 0.5; }
+.role-item:hover .delete-role-btn { opacity: 1; }
+.delete-role-btn:hover { color: var(--denied-color); }
+
+.add-form { display: flex; gap: 0.5rem; margin-top: 1rem; flex-shrink: 0; }
+.add-form input {
+    flex-grow: 1; background-color: var(--secondary-panel-bg); border: 1px solid var(--border-color); color: var(--primary-text-color); border-radius: 6px; padding: 0.5rem;
+    transition: box-shadow 0.2s;
+}
+.add-form input:focus { outline: none; box-shadow: 0 0 0 3px var(--accent-color-light); border-color: var(--accent-color); }
+.add-form button { background-color: var(--accent-color); border: none; color: white; font-weight: 600; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; font-size: 1.5rem; flex-shrink: 0; }
+
+#permissions-container.hidden { display: none; }
+.permissions-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem; }
+.permission-item label { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem; }
+
+/* --- Simulation Panel --- */
+.simulation-header { flex-direction: row; justify-content: space-between; align-items: center; }
+#user-select { background-color: var(--secondary-panel-bg); color: var(--primary-text-color); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.5rem; font-weight: 500; }
+
+/* CHANGE: Added flexbox properties to fix overflow */
+.unsecured-wrapper { display: flex; flex-direction: column; flex-grow: 1; min-height: 0; }
+.file-area { padding: 1rem; border-radius: 8px; transition: all 0.3s ease; }
+.area-title { font-weight: 600; margin-bottom: 1rem; color: var(--secondary-text-color); }
+.unsecured-area { background-color: var(--secondary-panel-bg); flex-grow: 1; border: 1px solid var(--border-color); }
+.vaults-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.vault { border: 2px dashed var(--border-color); position: relative; min-height: 150px; }
+.vault::before { content: '🔒'; position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; opacity: 0.3; }
+.vault.accessible { border-color: var(--accent-color); background-color: var(--accent-color-light); }
+.vault.accessible::before { content: '🔓'; opacity: 1; color: var(--accent-color); }
+.vault.drag-over { background-color: #d1fae5; border-style: solid; border-color: #34d399; }
+.vault.denied-flash { animation: flash-red 0.5s ease-out; }
+@keyframes flash-red { 0%, 100% { background-color: transparent; } 50% { background-color: rgba(249, 115, 22, 0.2); } }
+
+/* Files */
+.file { background-color: var(--primary-panel-bg); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 0.5rem; cursor: grab; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: relative; }
+.file:active { cursor: grabbing; }
+.file.dragging { opacity: 0.5; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.file-icon { font-size: 1.2rem; }
+.file-name { flex-grow: 1; }
+.delete-file-btn { background: none; border: none; color: var(--secondary-text-color); cursor: pointer; font-size: 1.2rem; opacity: 0; transition: opacity 0.2s; }
+.file:hover .delete-file-btn { opacity: 0.5; }
+.delete-file-btn:hover { opacity: 1; color: var(--denied-color); }
+
+/* --- Log Panel --- */
+.activity-log { list-style: none; padding: 0; flex-grow: 1; font-family: var(--font-mono); font-size: 0.9rem; }
+.log-entry { margin-bottom: 0.5rem; padding-left: 0.5rem; border-left: 2px solid var(--border-color); animation: slideIn 0.3s ease-out; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+.log-entry.success { border-left-color: var(--accent-color); }
+.log-entry.denied { border-left-color: var(--denied-color); }
+.log-entry .timestamp { color: var(--secondary-text-color); margin-right: 0.5rem; }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Function Composer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar with available function nodes -->
+        <aside class="library-panel">
+            <h2>Library</h2>
+            <p>Drag nodes onto the canvas.</p>
+            <div id="library-nodes">
+                <!-- Function templates will be dynamically inserted here -->
+            </div>
+        </aside>
+
+        <!-- Main canvas area -->
+        <main class="canvas-container">
+            <div id="canvas-panner">
+                <div id="canvas">
+                    <!-- Nodes will be dropped and created here -->
+                </div>
+                <svg id="svg-layer" class="svg-layer"></svg>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
