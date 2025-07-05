@@ -1,0 +1,62 @@
+Learning JS
+
+[x] Phase 1: Core JavaScript Fundamentals
+  [x] 1. Habit Loop Visualizer
+  [x] 2. Dynamic Personality Quiz
+  [x] 3. Real-Time Typing Benchmark Tool
+  [x] 4. Regex Tester Tool
+  [x] 5. Habit Tracker
+  [x] 6. Language Flashcard Quizzer
+  [x] 7. Emoji Crossword Generator
+  [x] 8. Simple Counter
+[] Phase 2: DOM & Event-Driven UI
+  [x] 1. Drag-and-Drop Mood Board
+  [x] 2. Live Tweet Wall
+  [x] 3. Interactive Resume
+  [x] 4. Accessible Tab Interface
+  [x] 5. Pomodoro Timer Todo ----> Things Remaining (NaN:Nan error in Long Break)
+  [] 6. Function Composer Playground
+  [] 7. Dynamic Access Control Simulator
+[] Phase 3: Asynchronous JS & Data-Driven Apps
+  [] 1. Weather Timeline Visualizer
+  [] 2. Image Loader w/ Retry Logic
+  [] 3. Async Story Generator
+  [] 4. Custom Polling Dashboard
+  [] 5. Crypto Price Dashboard
+  [] 6. RSS Feed Reader
+  [] 7. Collaborative Code-Sketch Canvas
+[] Phase 4: Canvas & Advanced Browser APIs
+  [] 1. Collaborative Pixel Painter
+  [] 2. Animated Bar Chart from JSON
+  [] 3. Gravity Sandbox
+  [] 4. Maze Generator & Solver
+  [] 5. Photo Filter Studio
+  [] 6. Geo-Journal
+  [] 7. Particle Orchestra
+[] Phase 5: Testing, Tooling & Professional Practices
+  [] 1. Custom Form-Validator Library
+  [] 2. CLI File Organizer
+  [] 3. Performance Audit Report Generator
+  [] 4. Project Template Generator CLI
+  [] 5. Custom ESLint Rule Engine
+[] Phase 6: Expert Level—Architecture & Patterns
+  [] 1. Plugin-Driven Dashboard
+  [] 2. Web Component Blog
+  [] 3. Undo/Redo Engine
+  [] 4. Factory & Singleton Explorer
+  [] 5. Multiplayer Trivia Game
+[] Phase 7: Major Integration & Capstone Projects
+  [] Major Integration Projects:
+    [] 1. Workflow Automation Tool (Zapier Lite)
+    [] 2. MindMap Builder
+    [] 3. Browser-Based Markdown Editor
+    [] 4. Personal Kanban Board
+    [] 5. Static Site Generator CLI
+    [] 6. Game Level Editor
+  [] Capstone Projects:
+    [] 1. Custom SPA Framework
+    [] 2. Online Code Execution Playground
+    [] 3. Minimalist RTS Game
+    [] 4. Real-Time Collaborative Whiteboard
+    [] 5. Voice-Controlled App
+    [] 6. WebGL 3D Model Viewer
