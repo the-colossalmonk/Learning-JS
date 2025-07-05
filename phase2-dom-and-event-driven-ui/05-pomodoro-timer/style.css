@@ -1,0 +1,103 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-text-color: #ffffff;
+    --secondary-text-color: rgba(255, 255, 255, 0.7);
+    --card-bg-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --primary-btn-bg: #ffffff;
+    --primary-btn-text: #333;
+    --secondary-btn-bg: rgba(255, 255, 255, 0.15);
+    
+    /* State colors */
+    --work-bg-start: #4A90E2; --work-bg-end: #50E3C2;
+    --break-bg-start: #4CAF50; --break-bg-end: #8BC34A;
+    --long-break-bg-start: #8E44AD; --long-break-bg-end: #9B59B6;
+
+    --font-sans: 'Poppins', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-sans);
+    color: var(--primary-text-color);
+    transition: background 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+body.state-work { background: linear-gradient(45deg, var(--work-bg-start), var(--work-bg-end)); }
+body.state-break { background: linear-gradient(45deg, var(--break-bg-start), var(--break-bg-end)); }
+body.state-long-break { background: linear-gradient(45deg, var(--long-break-bg-start), var(--long-break-bg-end)); }
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    width: 90%;
+    max-width: 1000px;
+    padding: 3rem;
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* --- Timer Section --- */
+.timer-section { text-align: center; }
+.session-title { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
+.timer-display { font-family: var(--font-mono); font-size: 7rem; font-weight: 700; line-height: 1; margin-bottom: 1.5rem; }
+.timer-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+.btn { border: none; border-radius: 8px; font-weight: 600; cursor: pointer; padding: 0.8rem 1.8rem; font-size: 1rem; transition: all 0.2s ease; }
+.btn-primary { background-color: var(--primary-btn-bg); color: var(--primary-btn-text); }
+.btn-primary:hover { transform: scale(1.05); }
+.btn-secondary { background-color: var(--secondary-btn-bg); color: var(--primary-text-color); }
+.btn-secondary:hover { background-color: rgba(255, 255, 255, 0.25); }
+.session-progress { display: flex; justify-content: center; gap: 0.75rem; min-height: 30px; }
+.session-icon { font-size: 1.5rem; transition: transform 0.3s ease; }
+
+/* --- To-Do Section --- */
+.todo-section { border-left: 1px solid var(--border-color); padding-left: 3rem; }
+.todo-section h3 { margin-bottom: 1.5rem; font-size: 1.2rem; }
+#todo-form { display: flex; margin-bottom: 1rem; }
+#todo-input { flex-grow: 1; background: none; border: none; border-bottom: 2px solid var(--border-color); color: var(--primary-text-color); font-size: 1rem; padding: 0.5rem; }
+#todo-input::placeholder { color: var(--secondary-text-color); }
+#todo-input:focus { outline: none; border-bottom-color: var(--primary-btn-bg); }
+#todo-form button { background: none; border: none; color: var(--primary-text-color); font-size: 2rem; cursor: pointer; padding: 0 0.5rem; }
+#todo-list { list-style: none; padding: 0; max-height: 300px; overflow-y: auto; }
+#todo-list li { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; font-size: 1rem; position: relative; padding: 0.5rem 0; }
+.todo-checkbox { width: 20px; height: 20px; accent-color: var(--primary-btn-bg); cursor: pointer; }
+.todo-text { flex-grow: 1; }
+.todo-item.completed .todo-text { text-decoration: line-through; opacity: 0.6; }
+.todo-actions { display: flex; gap: 0.5rem; opacity: 0; transition: opacity 0.2s; }
+#todo-list li:hover .todo-actions { opacity: 1; }
+.todo-action-btn { background: none; border: none; cursor: pointer; color: var(--secondary-text-color); font-size: 1.1rem; }
+.todo-action-btn:hover { color: var(--primary-text-color); }
+.edit-input { flex-grow: 1; background: rgba(255, 255, 255, 0.1); border: none; border-bottom: 1px solid var(--primary-btn-bg); color: var(--primary-text-color); font-family: var(--font-sans); font-size: 1rem; padding: 0; }
+.edit-input:focus { outline: none; }
+
+
+/* --- Toolbar --- */
+.toolbar { position: fixed; bottom: 20px; right: 20px; display: flex; gap: 1rem; }
+.toolbar-btn { background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; transition: all 0.2s; }
+.toolbar-btn:hover { transform: scale(1.1); background-color: rgba(255, 255, 255, 0.2); }
+
+/* --- Modal --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+.modal-overlay:not(.hidden) { opacity: 1; pointer-events: all; }
+.modal-content { background: var(--card-bg-color); border-radius: 16px; padding: 2rem; width: 90%; max-width: 400px; position: relative; backdrop-filter: blur(20px); border: 1px solid var(--border-color); }
+.modal-close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; color: var(--primary-text-color); cursor: pointer; }
+.modal-content h2 { margin-bottom: 2rem; }
+.settings-grid, .sounds-grid { display: grid; gap: 1.5rem; }
+.settings-grid { grid-template-columns: 1fr auto; align-items: center; }
+.sounds-grid { grid-template-columns: 1fr 1fr; }
+.settings-grid label { font-weight: 600; }
+.settings-grid input { width: 80px; text-align: center; padding: 0.5rem; background: var(--secondary-btn-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary-text-color); font-size: 1rem; }
+#save-settings-btn { grid-column: 1 / -1; margin-top: 1rem; }
+.sound-btn { background: var(--secondary-btn-bg); color: var(--primary-text-color); padding: 1rem; border: 1px solid transparent; border-radius: 8px; cursor: pointer; }
+.sound-btn.active { border-color: var(--primary-btn-bg); }
+
+.hidden { display: none; }

@@ -1,0 +1,298 @@
+/* --- Global Styles & Variables (Minimalist/Pastel Theme) --- */
+:root {
+    --bg-color: #F5F7FA;         /* A very light, cool gray background */
+    --card-bg-color: #FFFFFF;     /* Clean white for main containers */
+    --primary-text-color: #2d3748; /* Dark, soft charcoal for text */
+    --secondary-text-color: #718096; /* Lighter gray for sub-text */
+    --border-color: #E2E8F0;      /* Subtle border color */
+    --input-bg-color: #F7FAFC;    /* Slightly off-white for inputs */
+
+    /* Pastel Accent Colors */
+    --accent-color: #818CF8;      /* Pastel Indigo/Lavender */
+    --accent-color-hover: #6366F1; /* A more saturated version for hover */
+    --success-color: #68D391;     /* Pastel Green */
+    --danger-color: #F687B3;      /* Pastel Pink/Red */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 100vh;
+    align-items: flex-start;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+
+/* --- Manager Panel (Left Side) --- */
+.habit-manager {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color);
+}
+
+.habit-manager header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.habit-manager header h1 {
+    color: var(--primary-text-color);
+    margin-bottom: 0.25rem;
+}
+
+.habit-manager header p {
+    color: var(--secondary-text-color);
+}
+
+#habit-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+#habit-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-text-color);
+}
+
+#habit-form input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#habit-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+}
+
+#form-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#form-btn:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+}
+
+.habit-list-section {
+    margin-top: 2.5rem;
+}
+
+.habit-list-section h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.habit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border-left: 5px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, border-left-color 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.habit-item:hover {
+    background-color: #FAFBFC;
+    border-color: #CFD8E3;
+}
+
+.habit-item.active {
+    border-left-color: var(--accent-color);
+    background-color: #F8F9FF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.habit-item-name {
+    font-weight: 600;
+}
+
+.habit-item-actions button {
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.habit-item-actions .edit-btn:hover {
+    background-color: rgba(104, 211, 145, 0.2);
+    color: var(--success-color);
+}
+
+.habit-item-actions .delete-btn:hover {
+    background-color: rgba(246, 135, 179, 0.2);
+    color: var(--danger-color);
+}
+
+/* --- Visualizer Panel (Right Side) --- */
+.habit-visualizer {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 2rem;
+}
+
+#visualizer-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--secondary-text-color);
+    transition: color 0.5s ease;
+}
+
+.loop-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.loop-stage {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.loop-stage.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loop-stage h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.stage-content {
+    color: var(--primary-text-color);
+}
+
+/* Tooltip Styles */
+.tooltip-icon {
+    position: relative;
+    cursor: help;
+    font-size: 0.8rem;
+    background-color: #E2E8F0;
+    color: var(--secondary-text-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--primary-text-color);
+    color: var(--card-bg-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+    font-weight: 400;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--primary-text-color) transparent transparent transparent;
+}
+
+.tooltip-icon:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+    .habit-visualizer {
+        position: static;
+        margin-top: 2rem;
+    }
+}

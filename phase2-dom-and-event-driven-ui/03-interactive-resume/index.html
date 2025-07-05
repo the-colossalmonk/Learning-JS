@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe - Interactive Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Jane Doe</h1>
+                <p>Creative Frontend Developer</p>
+                <div class="theme-switcher">
+                    <span>☀️</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>🌙</span>
+                </div>
+            </div>
+            <p class="header-intro">
+                Passionate about building intuitive, beautiful, and performant web experiences. 
+                Type 'help' in the terminal below for a surprise!
+            </p>
+        </header>
+
+        <main>
+            <section id="skills" class="resume-section">
+                <h2>Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <!-- Skill bars will be dynamically inserted here -->
+                </div>
+            </section>
+            
+            <section id="projects" class="resume-section">
+                <h2>Projects</h2>
+                <div id="project-filters" class="filters">
+                    <!-- Filter buttons will be dynamically inserted here -->
+                </div>
+                <div id="project-grid" class="project-grid">
+                    <!-- Project cards will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <section id="experience" class="resume-section">
+                <h2>Work Experience</h2>
+                <div id="experience-list" class="experience-list">
+                    <!-- Experience items will be dynamically inserted here -->
+                </div>
+            </section>
+            
+            <section id="terminal" class="resume-section terminal-section">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <span>~/jane.doe/ --bash</span>
+                </div>
+                <div id="terminal-output" class="terminal-output"></div>
+                <div class="terminal-input-line">
+                    <span class="prompt">></span>
+                    <input type="text" id="terminal-input" class="terminal-input" autofocus>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

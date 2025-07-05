@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Crossword Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Emoji Crossword</h1>
+            <div class="controls">
+                <div class="difficulty-selector">
+                    <span>Difficulty:</span>
+                    <button class="btn difficulty-btn active" data-difficulty="easy">Easy</button>
+                    <button class="btn difficulty-btn" data-difficulty="medium">Medium</button>
+                    <button class="btn difficulty-btn" data-difficulty="hard">Hard</button>
+                </div>
+                <button id="generate-btn" class="btn btn-primary">New Puzzle</button>
+            </div>
+        </header>
+
+        <main class="crossword-container">
+            <div id="grid-container" class="grid-container">
+                <!-- Crossword grid will be generated here -->
+            </div>
+            
+            <div class="clues-container">
+                <div id="clues-across" class="clue-list">
+                    <h2>Across</h2>
+                    <ul></ul>
+                </div>
+                <div id="clues-down" class="clue-list">
+                    <h2>Down</h2>
+                    <ul></ul>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <button id="check-btn" class="btn btn-secondary">Check Puzzle</button>
+            <button id="reveal-btn" class="btn btn-secondary">Reveal Puzzle</button>
+        </footer>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Generating Puzzle...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Personality Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <h1 class="quiz-title">Discover Your Coding Archetype</h1>
+            <p class="quiz-intro">
+                Are you a meticulous Architect, a deep-diving Sorcerer, an inventive Alchemist, or a user-focused Storyteller? Answer five questions to reveal your coding personality.
+            </p>
+            <button id="start-btn" class="btn btn-primary">Start the Quiz</button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="screen hidden">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <h2 id="question-text">This is a sample question?</h2>
+            <div id="answer-buttons" class="answer-buttons-grid">
+                <!-- Answer buttons will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hidden">
+            <p>Your archetype is...</p>
+            <h1 id="result-title" class="result-title"></h1>
+            <p id="result-emoji" class="result-emoji"></p>
+            <p id="result-description" class="result-description"></p>
+            <div class="result-actions">
+                <button id="restart-btn" class="btn btn-secondary">Try Again</button>
+                <button id="share-btn" class="btn btn-primary">Share Result</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

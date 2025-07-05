@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Tweet Wall</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-title">
+                <h1>#JSConference2024</h1>
+                <p>Live Feed</p>
+            </div>
+            <div class="controls">
+                <input type="text" id="filter-input" placeholder="Filter by keyword...">
+                <button id="pause-play-btn" class="btn">Pause</button>
+            </div>
+        </header>
+
+        <main id="tweet-wall" class="tweet-wall">
+            <!-- Tweets will be dynamically inserted here -->
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

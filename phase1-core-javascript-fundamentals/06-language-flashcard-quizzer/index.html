@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Flashcard Quizzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Spanish Vocabulary</h1>
+            <div class="deck-controls">
+                <label class="switch">
+                    <input type="checkbox" id="review-mode-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Review Mode</span>
+            </div>
+        </header>
+
+        <div class="card-container">
+            <div id="flashcard" class="card">
+                <div class="card-face card-front">
+                    <h2 id="card-front-text"></h2>
+                </div>
+                <div class="card-face card-back">
+                    <h2 id="card-back-text"></h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="navigation-controls" class="controls navigation-controls">
+            <button id="prev-btn" class="btn nav-btn">←</button>
+            <p id="progress-indicator" class="progress"></p>
+            <button id="next-btn" class="btn nav-btn">→</button>
+        </div>
+        
+        <div id="assessment-controls" class="controls assessment-controls hidden">
+            <button id="review-btn" class="btn assess-btn review">Needs Review</button>
+            <button id="known-btn" class="btn assess-btn known">I Knew It</button>
+        </div>
+
+        <footer class="app-footer">
+            <p>Use ← → to navigate, SPACE to flip.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

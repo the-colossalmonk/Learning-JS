@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Loop Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="app-container">
+        <!-- Left Side: Management Panel -->
+        <div class="habit-manager">
+            <header>
+                <h1>Habit Loop Manager</h1>
+                <p>Define, track, and understand your habits.</p>
+            </header>
+
+            <form id="habit-form">
+                <input type="hidden" id="habit-id">
+                <div class="form-group">
+                    <label for="cue">Cue (The Trigger)</label>
+                    <input type="text" id="cue" placeholder="e.g., 'Waking up in the morning'" required>
+                </div>
+                <div class="form-group">
+                    <label for="craving">Craving (The Motivation)</label>
+                    <input type="text" id="craving" placeholder="e.g., 'The desire to feel alert'" required>
+                </div>
+                <div class="form-group">
+                    <label for="response">Response (The Habit)</label>
+                    <input type="text" id="response" placeholder="e.g., 'Brewing a cup of coffee'" required>
+                </div>
+                <div class="form-group">
+                    <label for="reward">Reward (The Payoff)</label>
+                    <input type="text" id="reward" placeholder="e.g., 'The satisfying taste and energy boost'" required>
+                </div>
+                <button type="submit" id="form-btn">Add New Habit</button>
+            </form>
+
+            <div class="habit-list-section">
+                <h2>My Habits</h2>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search habits...">
+                </div>
+                <div id="habit-list" class="habit-list">
+                    <!-- Habits will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Visualizer Panel -->
+        <div class="habit-visualizer">
+            <h2 id="visualizer-title">Select a habit to visualize</h2>
+            <div id="loop-container" class="loop-container">
+                <div class="loop-stage" id="stage-cue">
+                    <h3>1. Cue <span class="tooltip-icon">ⓘ<span class="tooltip-text">Change your environment to make good cues obvious and bad cues invisible.</span></span></h3>
+                    <p class="stage-content">-</p>
+                </div>
+                <div class="loop-stage" id="stage-craving">
+                    <h3>2. Craving <span class="tooltip-icon">ⓘ<span class="tooltip-text">Reframe your mindset. Associate good habits with a positive feeling and bad habits with a negative one.</span></span></h3>
+                    <p class="stage-content">-</p>
+                </div>
+                <div class="loop-stage" id="stage-response">
+                    <h3>3. Response <span class="tooltip-icon">ⓘ<span class="tooltip-text">Make good habits easy to do and bad habits difficult. Increase or decrease friction.</span></span></h3>
+                    <p class="stage-content">-</p>
+                </div>
+                <div class="loop-stage" id="stage-reward">
+                    <h3>4. Reward <span class="tooltip-icon">ⓘ<span class="tooltip-text">Give yourself an immediate reward when you complete a good habit. Make bad habits feel unsatisfying.</span></span></h3>
+                    <p class="stage-content">-</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

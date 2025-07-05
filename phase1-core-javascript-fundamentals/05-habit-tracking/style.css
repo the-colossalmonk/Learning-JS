@@ -1,0 +1,136 @@
+/* --- Global Styles & Variables (Minimalist/Pastel Theme) --- */
+:root {
+    --bg-color: #F5F7FA;
+    --card-bg-color: #FFFFFF;
+    --primary-text-color: #2d3748;
+    --secondary-text-color: #718096;
+    --border-color: #E2E8F0;
+    --accent-color: #818CF8; /* Pastel Indigo */
+    --hover-bg-color: #EDF2F7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.5;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+/* --- Header --- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.app-header h1 { color: var(--accent-color); }
+.month-navigation { display: flex; align-items: center; gap: 1rem; }
+.month-navigation h2 { font-size: 1.5rem; width: 200px; text-align: center; }
+.nav-btn { background: none; border: 1px solid var(--border-color); color: var(--primary-text-color); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
+.nav-btn:hover { background-color: var(--hover-bg-color); }
+
+/* --- Habit Tracker Grid --- */
+.habit-tracker {
+    display: grid;
+    /* Columns: Habit Name, Streak, Days... */
+    grid-template-columns: 200px 70px repeat(31, 1fr); 
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 1rem; /* For scrollbar */
+}
+.grid-header { font-weight: 600; text-align: center; padding: 0.5rem; font-size: 0.9rem; color: var(--secondary-text-color); }
+.grid-header.habit-name-header { text-align: left; }
+.grid-cell { display: flex; justify-content: center; align-items: center; }
+
+/* Habit Row */
+.habit-row-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 600;
+}
+.delete-habit-btn { background: none; border: none; cursor: pointer; color: var(--secondary-text-color); opacity: 0.2; transition: opacity 0.2s; }
+.habit-row-header:hover .delete-habit-btn { opacity: 1; color: #e53e3e; }
+
+/* Streak Cell */
+.streak-cell {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    position: relative;
+}
+.streak-cell .fire-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* Completion Cell */
+.completion-cell {
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: var(--bg-color);
+}
+.completion-cell:hover { transform: scale(1.1); }
+.completion-cell.completed {
+    background-color: var(--habit-color);
+    border-color: var(--habit-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--habit-color);
+}
+.completion-cell.today {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(129, 140, 248, 0.5);
+}
+
+/* --- Footer Form --- */
+.app-footer { margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
+#add-habit-form { display: flex; gap: 1rem; align-items: center; }
+#habit-name-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+#habit-name-input:focus { outline: none; border-color: var(--accent-color); }
+
+.color-picker { display: flex; align-items: center; gap: 0.5rem; }
+#habit-color-input { width: 40px; height: 40px; border: none; padding: 0; background: none; border-radius: 8px; cursor: pointer; }
+/* Webkit styling for color input */
+#habit-color-input::-webkit-color-swatch-wrapper { padding: 0; }
+#habit-color-input::-webkit-color-swatch { border: 1px solid var(--border-color); border-radius: 8px; }
+
+.btn-add {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-add:hover { background-color: #6366F1; }

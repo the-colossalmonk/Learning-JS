@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow - Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="state-work">
+
+    <div class="app-container">
+        <!-- Main Timer Section -->
+        <div class="timer-section">
+            <h2 id="session-title" class="session-title">Work</h2>
+            <div id="timer-display" class="timer-display">25:00</div>
+            <div class="timer-controls">
+                <button id="start-pause-btn" class="btn btn-primary">Start</button>
+                <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                <button id="skip-btn" class="btn btn-secondary">Skip</button>
+            </div>
+            <div id="session-progress" class="session-progress">
+                <!-- Pomodoro icons will be added here -->
+            </div>
+        </div>
+
+        <!-- To-Do List Section -->
+        <div class="todo-section">
+            <h3>Tasks for Today</h3>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Add a new task...">
+                <button type="submit" title="Add Task">+</button>
+            </form>
+            <ul id="todo-list">
+                <!-- To-do items will be added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Toolbar for Settings and Sounds -->
+    <div class="toolbar">
+        <button id="settings-btn" class="toolbar-btn" title="Settings">⚙️</button>
+        <button id="sounds-btn" class="toolbar-btn" title="Ambient Sounds">🎵</button>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">×</button>
+            <h2>Settings</h2>
+            <div class="settings-grid">
+                <label for="work-duration">Work Duration (min)</label>
+                <input type="number" id="work-duration" min="1">
+                <label for="break-duration">Break Duration (min)</label>
+                <input type="number" id="break-duration" min="1">
+                <label for="long-break-duration">Long Break Duration (min)</label>
+                <input type="number" id="long-break-duration" min="1">
+            </div>
+            <button id="save-settings-btn" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+    
+    <!-- Sounds Modal -->
+    <div id="sounds-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">×</button>
+            <h2>Ambient Sounds</h2>
+            <div class="sounds-grid">
+                <button class="sound-btn" data-sound="none">None</button>
+                <button class="sound-btn" data-sound="rain">Rain 🌧️</button>
+                <button class="sound-btn" data-sound="cafe">Cafe ☕</button>
+                <button class="sound-btn" data-sound="forest">Forest 🌳</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements pointing to local files -->
+    <audio id="chime-sound" src="./sounds/chime.mp3"></audio>
+    <audio id="rain-sound" src="./sounds/rain.mp3" loop></audio>
+    <audio id="cafe-sound" src="./sounds/cafe.mp3" loop></audio>
+    <audio id="forest-sound" src="./sounds/forest.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

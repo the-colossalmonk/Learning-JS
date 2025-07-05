@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Canvas (FigJam Lite)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Toolbar for tools and palettes -->
+        <div class="toolbar">
+            <div class="tool-group">
+                <button class="tool active" data-tool="select" title="Select Tool (V)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                </button>
+                <button class="tool" data-tool="pen" title="Pen Tool (P)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                </button>
+            </div>
+            <div class="palette">
+                <!-- Draggable Shapes -->
+                <div class="draggable shape" data-type="shape-rect" draggable="true"></div>
+                <div class="draggable shape circle" data-type="shape-circle" draggable="true"></div>
+                <div class="draggable shape triangle" data-type="shape-triangle" draggable="true"></div>
+                <div class="draggable shape diamond" data-type="shape-diamond" draggable="true"></div>
+                <!-- Draggable Notes -->
+                <div class="draggable note yellow" data-type="note-yellow" draggable="true"></div>
+                <div class="draggable note blue" data-type="note-blue" draggable="true"></div>
+                <div class="draggable note green" data-type="note-green" draggable="true"></div>
+                <!-- Sticker Button -->
+                <button id="sticker-btn" class="sticker-btn">😀</button>
+            </div>
+        </div>
+
+        <!-- The main canvas area -->
+        <div id="canvas" class="canvas">
+            <!-- All elements will be dynamically added here -->
+        </div>
+
+        <!-- Custom Context Menu (initially hidden) -->
+        <div id="context-menu" class="context-menu hidden">
+            <button data-action="bringToFront">Bring to Front</button>
+            <button data-action="sendToBack">Send to Back</button>
+            <div class="separator"></div>
+            <button data-action="delete" class="danger">Delete</button>
+        </div>
+        
+        <!-- Sticker Popover Panel (initially hidden) -->
+        <div id="sticker-panel" class="popover hidden">
+            <div class="popover-header">
+                <h3>Stickers</h3>
+                <button id="close-sticker-panel" class="close-btn">×</button>
+            </div>
+            <div class="popover-content" id="sticker-grid">
+                <!-- Stickers will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

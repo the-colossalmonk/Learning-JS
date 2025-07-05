@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Habit Tracker</h1>
+            <div class="month-navigation">
+                <button id="prev-month-btn" class="nav-btn">< Prev</button>
+                <h2 id="current-month-display"></h2>
+                <button id="next-month-btn" class="nav-btn">Next ></button>
+            </div>
+        </header>
+
+        <main id="habit-tracker" class="habit-tracker">
+            <!-- Habit grid will be dynamically generated here -->
+        </main>
+
+        <footer class="app-footer">
+            <form id="add-habit-form">
+                <input type="text" id="habit-name-input" placeholder="Add a new habit (e.g., Read for 15 mins)" required>
+                <div class="color-picker">
+                    <label>Color:</label>
+                    <input type="color" id="habit-color-input" value="#818cf8">
+                </div>
+                <button type="submit" class="btn-add">Add Habit</button>
+            </form>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

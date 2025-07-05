@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Left Panel: Inputs & Controls -->
+        <div class="panel inputs-panel">
+            <header class="panel-header">
+                <h2>Regular Expression</h2>
+                <div id="cheatsheet-trigger" class="btn btn-secondary">Cheat Sheet</div>
+            </header>
+
+            <details class="explanation-details">
+                <summary>What is a Regular Expression?</summary>
+                <p>A Regular Expression (or "Regex") is a special sequence of characters that defines a search pattern. It's like a superpower for searching, validating, and manipulating text. You can use it to check if an email is valid, find all phone numbers in a document, or even extract data from log files.</p>
+            </details>
+
+            <div class="form-group">
+                <label for="regex-presets">
+                    Common Patterns
+                    <span id="preset-info-icon" class="info-icon">ⓘ</span>
+                    <div id="preset-tooltip" class="tooltip hidden"></div>
+                </label>
+                <select id="regex-presets" class="control"></select>
+            </div>
+
+            <div class="form-group hidden" id="custom-regex-container">
+                <label for="custom-regex-input">Your Pattern</label>
+                <div class="regex-input-wrapper">
+                    <span class="regex-delimiter">/</span>
+                    <input type="text" id="custom-regex-input" class="control" placeholder="your-pattern-here">
+                    <span class="regex-delimiter">/</span>
+                    <input type="text" id="regex-flags-input" class="control" placeholder="flags" value="g">
+                </div>
+                <p id="regex-error" class="error-message"></p>
+            </div>
+
+            <div class="panel-section">
+                <h3>Match Information</h3>
+                <div id="match-info-container" class="match-info">
+                    <p class="no-matches">No matches found.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Panel: Test String -->
+        <div class="panel test-string-panel">
+            <header class="panel-header">
+                <h2>Test String</h2>
+            </header>
+            <div class="editor-wrapper">
+                <textarea id="test-string-input" class="control" placeholder="Enter your text to test against..." spellcheck="false"></textarea>
+                <div id="highlighted-output" class="highlighted-output"></div>
+            </div>
+        </div>
+        
+        <!-- Right Panel: Cheat Sheet -->
+        <div id="cheatsheet-panel" class="panel cheatsheet-panel hidden">
+            <header class="panel-header">
+                <h2>Cheat Sheet</h2>
+            </header>
+            <div id="cheatsheet-content">
+                <!-- Cheat sheet items will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

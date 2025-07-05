@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Benchmark Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="container" class="container">
+        <div id="mode-selector" class="mode-selector">
+            <button class="btn mode-btn" data-duration="30">30s</button>
+            <button class="btn mode-btn active" data-duration="60">60s</button>
+            <button class="btn mode-btn" data-duration="90">90s</button>
+            <button class="btn mode-btn" data-duration="120">120s</button>
+        </div>
+
+        <header class="stats">
+            <div class="stat-box">
+                <div class="stat-label">WPM</div>
+                <div id="wpm" class="stat-value">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Accuracy</div>
+                <div id="accuracy" class="stat-value">100%</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Time</div>
+                <div id="timer" class="stat-value">60s</div>
+            </div>
+        </header>
+
+        <div id="quote-display-container">
+            <div id="quote-display" class="quote-display">
+                <!-- Quote characters will be dynamically inserted here -->
+            </div>
+            <textarea id="quote-input" class="quote-input" autofocus></textarea>
+        </div>
+        
+        <div id="loading" class="loading-spinner hidden"></div>
+
+        <div class="footer-actions">
+            <button id="share-btn" class="btn btn-secondary" disabled>Share Results</button>
+            <button id="restart-main-btn" class="btn btn-main-restart">Restart Test</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="counter-container">
+        <h1 class="title">Counter</h1>
+        
+        <div id="counter-display" class="counter-display">0</div>
+        
+        <div class="action-buttons">
+            <button id="decrement-btn" class="btn action-btn">-</button>
+            <button id="reset-btn" class="btn reset-btn">Reset</button>
+            <button id="increment-btn" class="btn action-btn">+</button>
+        </div>
+
+        <div class="advanced-controls">
+            <div class="control-group">
+                <label for="step-input">Step</label>
+                <input type="number" id="step-input" class="control-input" value="1" min="1">
+            </div>
+            <div class="control-group">
+                <label for="set-value-input">Set Value</label>
+                <input type="number" id="set-value-input" class="control-input" placeholder="0">
+                <button id="set-btn" class="btn set-btn">Set</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

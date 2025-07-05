@@ -1,0 +1,105 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #F5F7FA;
+    --card-bg-color: #FFFFFF;
+    --primary-text-color: #2d3748;
+    --secondary-text-color: #718096;
+    --border-color: #E2E8F0;
+    --accent-color: #818CF8; /* Pastel Indigo */
+    --known-color: #68D391;   /* Pastel Green */
+    --review-color: #F6AD55; /* Pastel Orange */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- Header & Controls --- */
+.app-header { display: flex; justify-content: space-between; align-items: center; }
+.app-header h1 { font-size: 1.5rem; }
+.deck-controls { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--secondary-text-color); }
+.switch { position: relative; display: inline-block; width: 40px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 22px; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--accent-color); }
+input:checked + .slider:before { transform: translateX(18px); }
+
+/* --- Card Styles --- */
+.card-container {
+    perspective: 1000px; /* This creates the 3D space */
+    min-height: 250px;
+}
+.card {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    transform-style: preserve-3d; /* This is key for 3D transforms */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back of the element when flipped */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+.card-face h2 { font-family: 'Noto Sans', sans-serif; font-size: 2.5rem; }
+.card-back {
+    transform: rotateY(180deg); /* Flips the back face initially */
+    color: var(--accent-color);
+}
+
+/* --- Controls --- */
+.controls { display: flex; justify-content: center; align-items: center; gap: 1rem; }
+.controls.hidden { display: none; }
+.progress { font-size: 1rem; color: var(--secondary-text-color); width: 100px; }
+.btn {
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.2s ease;
+}
+.nav-btn { background-color: var(--card-bg-color); border: 1px solid var(--border-color); width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; }
+.nav-btn:hover { background-color: var(--hover-bg-color); transform: scale(1.05); }
+
+.assess-btn { color: white; flex-grow: 1; }
+.assess-btn.known { background-color: var(--known-color); }
+.assess-btn.known:hover { filter: brightness(1.1); }
+.assess-btn.review { background-color: var(--review-color); }
+.assess-btn.review:hover { filter: brightness(1.1); }
+
+/* --- Footer --- */
+.app-footer { color: var(--secondary-text-color); font-size: 0.9rem; }
