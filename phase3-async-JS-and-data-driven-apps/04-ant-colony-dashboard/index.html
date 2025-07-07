@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant Colony Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Ant Colony Dashboard</h1>
+            <div class="controls">
+                <button id="add-widget-btn" class="btn btn-primary">Add Chamber</button>
+                <button id="global-pause-resume-btn" class="btn btn-secondary">Pause All</button>
+            </div>
+        </header>
+
+        <main id="dashboard-grid" class="dashboard-grid">
+            <!-- Widgets will be dynamically added here -->
+        </main>
+    </div>
+
+    <!-- Add Widget Modal -->
+    <div id="add-widget-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Add New Chamber Monitor</h2>
+            <form id="add-widget-form">
+                <div class="form-group">
+                    <label for="chamber-type">Chamber Type</label>
+                    <select id="chamber-type">
+                        <option value="nursery">Nursery</option>
+                        <option value="foodStore">Food Stores</option>
+                        <option value="queenChamber">Queen's Chamber</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="update-interval">Update Interval (seconds)</label>
+                    <input type="number" id="update-interval" value="3" min="1" max="10">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Monitor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Widget Template -->
+    <template id="widget-template">
+        <div class="widget">
+            <button class="close-widget-btn">×</button>
+            <div class="widget-header">
+                <h3 class="widget-title"></h3>
+                <span class="widget-status"></span>
+            </div>
+            <div class="widget-body">
+                <div class="stats">
+                    <div class="stat">
+                        <label>Population</label>
+                        <span class="stat-value population">--</span>
+                    </div>
+                    <div class="stat">
+                        <label>Food Level</label>
+                        <span class="stat-value food">--</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <svg class="mini-chart"></svg>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Art Restorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>The Digital Art Restorer</h1>
+            <p>A resilient image loader handling network failures with grace. Restore artworks individually or all at once.</p>
+            <div class="controls">
+                <button id="reset-all-btn" class="btn">Reset & Restore All</button>
+            </div>
+        </header>
+        
+        <main id="gallery" class="gallery-grid">
+            <!-- Gallery items will be dynamically inserted here -->
+        </main>
+    </div>
+
+    <!-- Template for a single gallery item -->
+    <template id="gallery-item-template">
+        <div class="gallery-item">
+            <div class="artwork-area">
+                <div class="canvas-placeholder">
+                    <div class="status-overlay">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="image-container"></div>
+            </div>
+            <div class="card-footer">
+                <span class="status-text"></span>
+                <button class="btn-action"></button>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

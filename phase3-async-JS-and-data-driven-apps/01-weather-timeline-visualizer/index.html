@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Timeline Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="weather-card" class="weather-card">
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Enter city name...">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div id="weather-content" class="weather-content hidden">
+            <div class="current-conditions">
+                <div class="location-info">
+                    <h1 id="city-name"></h1>
+                    <p id="current-time"></p>
+                </div>
+                <div class="weather-display">
+                    <div id="weather-icon" class="weather-icon"></div>
+                    <div class="temp-details">
+                        <p class="current-temp"><span id="current-temp"></span>°C</p>
+                        <p id="weather-description"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="forecast-visualizer">
+                <h3>Hourly Forecast</h3>
+                <div class="graph-container">
+                    <svg id="hourly-chart" class="hourly-chart"></svg>
+                    <div id="tooltip" class="chart-tooltip hidden"></div>
+                </div>
+            </div>
+
+            <div class="daily-forecast">
+                <h3>7-Day Forecast</h3>
+                <div id="daily-timeline" class="daily-timeline">
+                    <!-- Daily forecast cards will be inserted here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading-indicator" class="loading-indicator hidden">
+            <div class="spinner"></div>
+        </div>
+        <div id="error-message" class="error-message hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

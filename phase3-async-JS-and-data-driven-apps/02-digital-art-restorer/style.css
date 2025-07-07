@@ -1,0 +1,100 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #f4f7f9;
+    --card-bg-color: #ffffff;
+    --primary-text-color: #2d3748;
+    --secondary-text-color: #9ca3af;
+    --border-color: #e5e7eb;
+    --accent-color: #6366f1;
+    --success-color: #34d399;
+    --error-color: #f87171;
+    --font-sans: 'Poppins', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--primary-text-color); }
+
+.app-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.app-header { text-align: center; margin-bottom: 2rem; }
+.app-header h1 { font-size: 2.5rem; font-weight: 700; }
+.app-header p { color: var(--secondary-text-color); margin-top: 0.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.controls { margin-top: 1.5rem; }
+.btn {
+    background-color: var(--accent-color); color: white; border: none;
+    padding: 0.75rem 2rem; border-radius: 8px; font-weight: 600;
+    font-size: 1rem; cursor: pointer; transition: all 0.2s ease;
+}
+.btn:hover { filter: brightness(1.1); transform: scale(1.02); }
+
+/* --- Gallery --- */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.gallery-item {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-area { aspect-ratio: 4 / 5; position: relative; overflow: hidden; }
+
+.canvas-placeholder {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    transition: opacity 0.5s ease;
+}
+.status-overlay {
+    width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    gap: 1rem;
+    transition: background-color 0.5s ease;
+}
+.spinner { width: 30px; height: 30px; border: 3px solid var(--border-color); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.image-container { width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease; }
+.image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg-color);
+}
+.status-text { font-weight: 600; color: var(--secondary-text-color); }
+.btn-action {
+    background-color: var(--accent-color); color: white; border: none;
+    padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer;
+    font-weight: 600; transition: all 0.2s;
+}
+.btn-action:hover { filter: brightness(1.1); }
+
+/* --- Item States --- */
+.gallery-item.pending .spinner { display: none; }
+.gallery-item.pending .btn-action { background-color: var(--accent-color); }
+
+.gallery-item.restoring .status-text { display: none; }
+.gallery-item.restoring .btn-action { background-color: #9ca3af; }
+.gallery-item.restoring .status-overlay {
+    mask: linear-gradient(-45deg, #000 40%, #0000 60%);
+    mask-size: 300% 300%;
+    animation: wipe 2.5s linear infinite;
+}
+@keyframes wipe { 100% { mask-position: 100% 100%; } }
+
+.gallery-item.failed .spinner { display: none; }
+.gallery-item.failed .status-overlay { background-color: rgba(239, 68, 68, 0.2); }
+.gallery-item.failed .status-text { color: var(--error-color); }
+.gallery-item.failed .btn-action { background-color: var(--error-color); }
+
+.gallery-item.success .canvas-placeholder { opacity: 0; pointer-events: none; }
+.gallery-item.success .image-container { opacity: 1; animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes pop-in { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.gallery-item.success .status-text { color: var(--success-color); }
+/* New style for the reload button */
+.gallery-item.success .btn-action { background-color: var(--accent-color); }

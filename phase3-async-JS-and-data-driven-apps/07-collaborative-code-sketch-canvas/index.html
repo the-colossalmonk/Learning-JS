@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Code-Sketch Canvas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="toolbar">
+            <div class="tool-group">
+                <label for="color-picker">Color</label>
+                <input type="color" id="color-picker" value="#ef4444">
+            </div>
+            <div class="tool-group">
+                <label for="brush-size">Brush Size</label>
+                <input type="range" id="brush-size" min="1" max="50" value="5">
+            </div>
+            <div class="tool-group">
+                <button id="undo-btn" class="btn">Undo</button>
+                <button id="clear-btn" class="btn">Clear All</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="canvas-container" class="canvas-container">
+                <canvas id="drawing-canvas"></canvas>
+                <!-- Cursors of other users will be added here -->
+            </div>
+            
+            <aside class="users-panel">
+                <h2>Online</h2>
+                <ul id="users-list">
+                    <!-- User list will be dynamically inserted here -->
+                </ul>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Template for a user list item -->
+    <template id="user-item-template">
+        <li class="user-item">
+            <span class="user-color-dot"></span>
+            <span class="user-name"></span>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

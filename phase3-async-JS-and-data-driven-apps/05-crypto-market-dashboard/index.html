@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-title">
+                <h1>Crypto Market Pulse</h1>
+                <p>Live prices and market analysis.</p>
+            </div>
+            <div class="view-switcher">
+                <span>Card View</span>
+                <label class="switch">
+                    <input type="checkbox" id="view-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Heatmap View</span>
+            </div>
+        </header>
+
+        <main id="main-content" class="main-content">
+            <!-- View 1: Card Dashboard (Default) -->
+            <div id="card-grid-container" class="dashboard-grid">
+                <!-- Asset cards will be dynamically inserted here -->
+            </div>
+            
+            <!-- View 2: Heatmap -->
+            <div id="heatmap-container" class="heatmap-container hidden">
+                <!-- Heatmap cells will be dynamically inserted here -->
+            </div>
+        </main>
+        
+        <aside class="notifications-panel">
+            <h2>Glossary & Info</h2>
+            <ul id="notifications-log" class="notifications-log">
+                <li class="log-entry info"><strong class="info-term">Market Cap:</strong> The total value of a cryptocurrency. (Current Price x Circulating Supply).</li>
+                <li class="log-entry info"><strong class="info-term">24h Change:</strong> The percentage a coin's price has moved up or down in the last 24 hours.</li>
+                <li class="log-entry info"><strong class="info-term">Sparkline:</strong> A small line chart showing the general price trend over the last 7 days.</li>
+            </ul>
+        </aside>
+
+        <div id="tooltip" class="tooltip hidden"></div>
+    </div>
+
+    <!-- Template for a single asset card -->
+    <template id="asset-card-template">
+        <div class="asset-card">
+            <div class="card-header">
+                <img class="asset-icon" src="" alt="coin icon">
+                <div class="asset-title">
+                    <h3 class="asset-name"></h3>
+                    <span class="asset-symbol"></span>
+                </div>
+                <div class="info-icon" title="Click for more info">ⓘ</div>
+            </div>
+            <div class="card-body">
+                <p class="asset-price"></p>
+                <p class="asset-change"></p>
+            </div>
+            <div class="card-footer">
+                <svg class="sparkline-chart"></svg>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template for a heatmap cell -->
+    <template id="heatmap-cell-template">
+        <div class="heatmap-cell">
+            <strong class="asset-id"></strong>
+            <span class="spread-percent"></span>
+        </div>
+    </template>
+    
+    <script src="script.js" type="module"></script>
+</body>
+</html>

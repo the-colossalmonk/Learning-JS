@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Feed Curator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Your Feed Curator</h1>
+            <div class="controls">
+                <div class="theme-switcher">
+                    <span>☀️</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>🌙</span>
+                </div>
+                <button id="add-feed-btn" class="btn">Add Feed</button>
+            </div>
+        </header>
+
+        <main id="dashboard" class="dashboard">
+            <!-- Feed columns will be dynamically inserted here -->
+        </main>
+    </div>
+
+    <!-- Add Feed Modal -->
+    <div id="add-feed-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Add New RSS Feed</h2>
+            <form id="add-feed-form">
+                <div class="form-group">
+                    <label for="feed-url">Feed URL</label>
+                    <input type="url" id="feed-url" placeholder="https://example.com/rss.xml" required>
+                </div>
+                <p id="modal-error" class="modal-error hidden"></p>
+                <div class="modal-actions">
+                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Feed</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Story Card Template -->
+    <template id="story-card-template">
+        <a class="story-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="card-image-container">
+                <img src="" alt="Story image" class="card-image">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title"></h3>
+                <p class="card-snippet"></p>
+                <span class="card-date"></span>
+            </div>
+        </a>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

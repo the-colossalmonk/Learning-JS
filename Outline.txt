@@ -9,7 +9,7 @@ Learning JS
   [x] 6. Language Flashcard Quizzer
   [x] 7. Emoji Crossword Generator
   [x] 8. Simple Counter
-[] Phase 2: DOM & Event-Driven UI
+[x] Phase 2: DOM & Event-Driven UI
   [x] 1. Drag-and-Drop Mood Board
   [x] 2. Live Tweet Wall
   [x] 3. Interactive Resume
@@ -18,14 +18,14 @@ Learning JS
   [x] 6. Function Composer Playground
   [x] 7. Class & Skill Tree Architect
   [x] 7. Dynamic Access Control Simulator
-[] Phase 3: Asynchronous JS & Data-Driven Apps
-  [] 1. Weather Timeline Visualizer
-  [] 2. Image Loader w/ Retry Logic
-  [] 3. Async Story Generator
-  [] 4. Custom Polling Dashboard
-  [] 5. Crypto Price Dashboard
-  [] 6. RSS Feed Reader
-  [] 7. Collaborative Code-Sketch Canvas
+[x] Phase 3: Asynchronous JS & Data-Driven Apps
+  [x] 1. Weather Timeline Visualizer
+  [x] 2. Digital Art Restorer
+  [x] 3. Async Story Generator
+  [x] 4. Any Colony Dashboard Dashboard
+  [x] 5. Crypto Market Dashboard
+  [x] 6. Visual Feed Curator
+  [x] 7. Collaborative Code-Sketch Canvas
 [] Phase 4: Canvas & Advanced Browser APIs
   [] 1. Collaborative Pixel Painter
   [] 2. Animated Bar Chart from JSON

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Story Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="book-container">
+        <!-- Left Page: Controls & Library -->
+        <div class="page left-page">
+            <div class="page-content">
+                <header class="controls-header">
+                    <h2>Story Engine</h2>
+                    <div class="genre-selector">
+                        <label for="genre-select">Choose a Genre:</label>
+                        <select id="genre-select">
+                            <option value="fantasy">Fantasy</option>
+                            <option value="sci-fi">Sci-Fi</option>
+                            <option value="mystery">Mystery</option>
+                        </select>
+                    </div>
+                </header>
+                <div class="action-area">
+                    <button id="generate-btn" class="btn">Weave a New Tale</button>
+                </div>
+                <div class="saved-stories">
+                    <h3>Saved Stories</h3>
+                    <ul id="saved-stories-list">
+                        <!-- Saved stories will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Page: The Story -->
+        <div class="page right-page">
+            <div id="story-stage" class="page-content">
+                <div id="loading-state" class="story-state hidden">
+                    <div class="spinner"></div>
+                    <p>Gathering threads of fate...</p>
+                </div>
+                <div id="story-display" class="story-state hidden">
+                    <div class="story-header">
+                        <img id="character-avatar" src="" alt="Character Avatar">
+                        <h2 id="character-name"></h2>
+                    </div>
+                    <div class="story-text-wrapper">
+                        <p id="story-text"></p>
+                    </div>
+                    <div class="story-actions">
+                        <button id="save-btn" class="btn-secondary">Save this Story</button>
+                    </div>
+                </div>
+                <div id="initial-state" class="story-state">
+                    <h2>Your next adventure awaits...</h2>
+                    <p>Select a genre and press the button to begin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template for saved story items -->
+    <template id="saved-story-template">
+        <li class="saved-story-item">
+            <span class="saved-story-title"></span>
+            <div class="saved-story-actions">
+                <button class="btn-icon view-btn" title="View Story">📖</button>
+                <button class="btn-icon delete-btn" title="Delete Story">×</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
