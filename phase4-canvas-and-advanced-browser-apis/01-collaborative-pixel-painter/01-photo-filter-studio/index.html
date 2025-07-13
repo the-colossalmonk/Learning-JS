@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Filter Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Left Panel: Controls -->
+        <aside class="controls-panel">
+            <h2>Photo Editor</h2>
+            
+            <div class="control-section">
+                <label for="upload-input" class="btn btn-primary">Upload Image</label>
+                <input type="file" id="upload-input" accept="image/*" class="hidden">
+            </div>
+
+            <fieldset>
+                <legend>Basic Filters</legend>
+                <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+                <button class="filter-btn" data-filter="sepia">Sepia</button>
+                <button class="filter-btn" data-filter="invert">Invert</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Adjustments</legend>
+                <div class="slider-group">
+                    <label for="brightness-slider">Brightness</label>
+                    <input type="range" id="brightness-slider" min="-100" max="100" value="0">
+                </div>
+                <div class="slider-group">
+                    <label for="contrast-slider">Contrast</label>
+                    <input type="range" id="contrast-slider" min="-100" max="100" value="0">
+                </div>
+                <div class="slider-group">
+                    <label for="saturation-slider">Saturation</label>
+                    <input type="range" id="saturation-slider" min="-100" max="100" value="0">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Convolution Filters</legend>
+                <button class="filter-btn" data-filter="sharpen">Sharpen</button>
+                <button class="filter-btn" data-filter="blur">Blur</button>
+                <button class="filter-btn" data-filter="edgeDetect">Edge Detect</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Text Tool</legend>
+                <div class="text-tool-form">
+                    <input type="text" id="text-input" placeholder="Enter text...">
+                    <input type="color" id="text-color-input" value="#ffffff">
+                    <button id="add-text-btn" class="btn btn-secondary">Add Text</button>
+                </div>
+            </fieldset>
+            
+            <div class="action-buttons">
+                <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                <button id="undo-btn" class="btn btn-secondary" disabled>Undo</button>
+                <button id="download-btn" class="btn btn-primary" disabled>Download</button>
+            </div>
+        </aside>
+
+        <!-- Right Panel: Canvas -->
+        <main class="canvas-panel">
+            <div id="canvas-container">
+                <canvas id="main-canvas"></canvas>
+                <!-- Text overlays will be added here -->
+            </div>
+            <p id="placeholder-text">Upload an image to get started</p>
+        </main>
+    </div>
+
+    <template id="text-overlay-template">
+        <div class="text-overlay" contenteditable="true"></div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
