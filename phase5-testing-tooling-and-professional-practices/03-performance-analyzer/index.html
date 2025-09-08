@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Performance Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Frontend Performance Analyzer</h1>
+            <p>Enter a public URL to analyze its on-page performance characteristics.</p>
+        </header>
+
+        <main>
+            <form id="audit-form" class="audit-form">
+                <input type="url" id="url-input" placeholder="https://example.com" required>
+                <button type="submit" id="analyze-btn" class="btn">Analyze</button>
+            </form>
+
+            <div id="loading-spinner" class="loading-spinner hidden"></div>
+
+            <div id="report-container" class="report-container">
+                <!-- The generated report will be displayed here -->
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js" type="module"></script>
+</body>
+</html>

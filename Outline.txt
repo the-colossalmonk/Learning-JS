@@ -38,7 +38,7 @@ Learning JS
 [] Phase 5: Testing, Tooling & Professional Practices
   [x] 1. Custom Form-Validator Library
   [x] 2. Browser Based File Organizer
-  [] 3. Performance Audit Report Generator
+  [x] 3. Performance Analyzer
   [] 4. Project Template Generator CLI
   [] 5. Custom ESLint Rule Engine
 [] Phase 6: Expert Level—Architecture & Patterns
