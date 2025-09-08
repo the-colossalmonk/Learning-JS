@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser File Organizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app-container" class="app-container">
+        <!-- Step 1: Initial Selection -->
+        <div id="step-1" class="step-container initial-view">
+            <header>
+                <h1>Secure File Organizer</h1>
+                <p>Organize your local folders right in the browser. No files are ever uploaded.</p>
+            </header>
+            <div id="drop-zone" class="drop-zone">
+                <button id="select-folder-btn" class="btn btn-primary">Select a Folder</button>
+                <p>or drag and drop a folder here</p>
+            </div>
+        </div>
+
+        <!-- Step 2: Main Organizer View -->
+        <div id="step-2" class="step-container hidden main-view">
+            <header class="app-header">
+                <h1 id="folder-name"></h1>
+                <div class="header-controls">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="recursive-toggle">
+                        Include Subfolders
+                    </label>
+                    <button id="settings-btn" class="btn btn-secondary">Rules</button>
+                    <button id="change-folder-btn" class="btn btn-secondary">Change Folder</button>
+                </div>
+            </header>
+            
+            <div class="main-layout">
+                <div id="file-grid-container" class="file-grid-container scrollable">
+                    <!-- File cards will be inserted here -->
+                </div>
+
+                <aside class="sidebar-panel">
+                    <div id="plan-view">
+                        <h3>Organization Plan</h3>
+                        <ul id="plan-list" class="plan-list scrollable"></ul>
+                    </div>
+                    <div id="preview-view" class="hidden">
+                        <h3>File Preview</h3>
+                        <div id="file-preview-content" class="file-preview-content scrollable"></div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="action-bar">
+                <button id="undo-btn" class="btn btn-secondary" disabled>Undo Last Action</button>
+                <button id="organize-btn" class="btn btn-primary" disabled>Organize Files</button>
+            </div>
+            
+            <div class="log-panel">
+                <h3>Activity Log</h3>
+                <ul id="log-list" class="log-list scrollable"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Organization Rules</h2>
+            <p>Define which file extensions go into which folders.</p>
+            <div id="rules-container" class="scrollable"></div>
+            <form id="add-rule-form">
+                <input type="text" id="rule-extension" placeholder=".jpg, .png">
+                <input type="text" id="rule-folder" placeholder="Images">
+                <button type="submit" class="btn">Add Rule</button>
+            </form>
+            <div class="modal-actions">
+                <button id="settings-close-btn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Conflict Modal -->
+    <div id="conflict-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>File Conflict</h2>
+            <p id="conflict-message"></p>
+            <div class="modal-actions">
+                <button class="btn" data-resolution="overwrite">Overwrite</button>
+                <button class="btn" data-resolution="rename">Keep Both</button>
+                <button class="btn btn-secondary" data-resolution="skip">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template for File Cards -->
+    <template id="file-card-template">
+        <div class="file-card" tabindex="0">
+            <div class="file-icon"></div>
+            <div class="file-info">
+                <span class="file-name"></span>
+                <span class="file-size"></span>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

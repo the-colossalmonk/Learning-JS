@@ -37,7 +37,7 @@ Learning JS
   [x] 8. Light Particle Show
 [] Phase 5: Testing, Tooling & Professional Practices
   [x] 1. Custom Form-Validator Library
-  [] 2. CLI File Organizer
+  [x] 2. Browser Based File Organizer
   [] 3. Performance Audit Report Generator
   [] 4. Project Template Generator CLI
   [] 5. Custom ESLint Rule Engine
