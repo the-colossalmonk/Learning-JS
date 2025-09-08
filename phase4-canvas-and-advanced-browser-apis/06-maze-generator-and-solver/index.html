@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Generator & Solver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="controls-panel">
+            <h2>Maze Lab</h2>
+
+            <div class="control-group">
+                <label for="grid-size-slider">Grid Size</label>
+                <input type="range" id="grid-size-slider" min="10" max="50" value="20" step="2">
+                <span id="grid-size-label">20 x 20</span>
+            </div>
+
+            <div class="control-group">
+                <label for="speed-slider">Animation Speed (ms)</label>
+                <input type="range" id="speed-slider" min="0" max="50" value="10">
+            </div>
+            
+            <div class="control-group">
+                <label for="generator-select">Generation Algorithm</label>
+                <select id="generator-select">
+                    <option value="dfs">Randomized DFS</option>
+                    <option value="prims">Prim's Algorithm</option>
+                    <option value="kruskals">Kruskal's Algorithm</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="solver-select">Solving Algorithm</label>
+                <select id="solver-select">
+                    <option value="bfs">Breadth-First Search (BFS)</option>
+                    <option value="a_star">A* Search</option>
+                    <option value="dfs_solve">Depth-First Search (DFS)</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button id="generate-btn" class="btn btn-primary">Generate New Maze</button>
+                <button id="solve-btn" class="btn" disabled>Solve Maze</button>
+            </div>
+
+            <div id="player-mode-info" class="info-box hidden">
+                <h3>Player Mode</h3>
+                <p>Use Arrow Keys to move. Reach the goal!</p>
+                <div id="player-status"></div>
+            </div>
+        </aside>
+
+        <main class="canvas-container">
+            <canvas id="maze-canvas"></canvas>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

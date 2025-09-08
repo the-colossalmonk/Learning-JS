@@ -1,0 +1,10 @@
+{
+    "title": "Quarterly Sales (USD)",
+    "barColor": "#4f46e5",
+    "data": [
+        { "label": "Q1", "value": 350 },
+        { "label": "Q2", "value": 520 },
+        { "label": "Q3", "value": 480 },
+        { "label": "Q4", "value": 710 }
+    ]
+}

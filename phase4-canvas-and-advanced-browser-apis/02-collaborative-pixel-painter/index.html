@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Pixel Painter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar for controls and user list -->
+        <aside class="controls-panel">
+            <h2>Pixel Painter</h2>
+            
+            <div class="control-section">
+                <h3>Color Palette</h3>
+                <div id="color-palette" class="color-palette">
+                    <!-- Color swatches will be inserted here -->
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Tools & View</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="grid-toggle" checked>
+                    Show Pixel Grid
+                </label>
+            </div>
+            
+            <div class="control-section">
+                <h3>Export</h3>
+                <button id="export-gif-btn" class="btn">Export as GIF</button>
+                <p id="export-status" class="status-text hidden"></p>
+            </div>
+
+            <div class="control-section users-section">
+                <h3>Online</h3>
+                <ul id="users-list">
+                    <!-- User list items will be inserted here -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main canvas area -->
+        <main id="canvas-wrapper" class="canvas-wrapper">
+            <div id="canvas-panner">
+                <canvas id="drawing-canvas"></canvas>
+                <canvas id="grid-canvas"></canvas>
+                <div id="cursors-container">
+                    <!-- Other users' cursors will be added here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Template for a user list item -->
+    <template id="user-item-template">
+        <li class="user-item">
+            <span class="user-color-dot"></span>
+            <span class="user-name"></span>
+        </li>
+    </template>
+
+    <!-- External library for GIF creation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Bento Grid Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Live Data Dashboard</h1>
+            <p>A customizable Bento Grid dashboard with live-updating charts, built with a custom layout engine.</p>
+        </header>
+
+        <main id="dashboard-grid" class="dashboard-grid">
+            <!-- Widgets will be dynamically inserted here -->
+        </main>
+    </div>
+
+    <!-- Widget Template -->
+    <template id="widget-template">
+        <div class="widget" draggable="true">
+            <div class="widget-header">
+                <h3 class="widget-title"></h3>
+            </div>
+            <div class="widget-body">
+                <canvas class="widget-canvas"></canvas>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+    </template>
+    
+    <script src="script.js"></script>
+</body>
+</html>

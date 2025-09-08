@@ -1,0 +1,93 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #111827;
+    --panel-bg-color: rgba(31, 41, 55, 0.8);
+    --primary-text-color: #f9fafb;
+    --secondary-text-color: #9ca3af;
+    --border-color: #4b5563;
+    --accent-color: #6366f1;
+    --font-sans: 'Poppins', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+#sandbox-canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* --- Controls Panel --- */
+.controls-panel {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--panel-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 300px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.controls-panel h2 { text-align: center; margin-bottom: 1.5rem; }
+.control-group { margin-bottom: 1.25rem; }
+.control-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--secondary-text-color); }
+input[type="range"] { width: 100%; }
+
+.button-group { display: flex; gap: 0.5rem; }
+.tool-btn {
+    flex-grow: 1;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text-color);
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.tool-btn.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn {
+    width: 100%;
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* --- Info Box --- */
+.info-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--secondary-text-color);
+    background-color: var(--panel-bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
