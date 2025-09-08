@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventurer's Log</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Left Panel: Journal Entries -->
+        <aside class="journal-panel">
+            <header>
+                <h1>Adventurer's Log</h1>
+                <button id="add-entry-btn" class="btn">New Log Entry</button>
+            </header>
+            <div id="journal-entries" class="entries-list">
+                <p class="no-entries-message">Your journey has not yet been chronicled. Click 'New Log Entry' to begin.</p>
+            </div>
+        </aside>
+
+        <!-- Right Panel: Map View -->
+        <main class="map-panel">
+            <div id="map-container" class="map-container">
+                <canvas id="map-canvas"></canvas>
+                <canvas id="fog-canvas"></canvas>
+                <p id="map-instruction" class="map-instruction hidden">Click on the map to place your pin...</p>
+            </div>
+            <button id="reset-map-btn" class="btn map-reset-btn" title="Reset All Entries">Reset Journey</button>
+        </main>
+    </div>
+
+    <!-- New Entry Modal -->
+    <div id="entry-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Chronicle Your Discovery</h2>
+            <form id="entry-form">
+                <div class="form-group">
+                    <label for="entry-title">Title of this Log</label>
+                    <input type="text" id="entry-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="entry-text">Your Story</label>
+                    <textarea id="entry-text" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="entry-image">Attach a Sketch (Image)</label>
+                    <input type="file" id="entry-image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Mark this Location</label>
+                    <div id="pin-select" class="pin-select">
+                        <!-- Pin options will be inserted here -->
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn">Save Log</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- View Entry Modal -->
+    <div id="view-modal" class="modal-overlay hidden">
+        <div class="modal-content view-modal-content">
+            <button id="view-modal-close-btn" class="modal-close-btn">&times;</button>
+            
+            <div id="view-modal-display-area">
+                <h2 id="view-modal-title"></h2>
+                <p id="view-modal-date"></p>
+                <img id="view-modal-image" src="" alt="Journal Sketch">
+                <p id="view-modal-text"></p>
+            </div>
+
+            <div id="view-modal-edit-area" class="hidden">
+                <div class="form-group">
+                    <label for="edit-title">Title</label>
+                    <input type="text" id="edit-title">
+                </div>
+                <div class="form-group">
+                    <label for="edit-text">Story</label>
+                    <textarea id="edit-text" rows="8"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="view-modal-delete-btn" class="btn btn-danger">Delete</button>
+                <button id="view-modal-edit-btn" class="btn btn-secondary">Edit</button>
+                <button id="view-modal-save-btn" class="btn hidden">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

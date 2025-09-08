@@ -33,7 +33,7 @@ Learning JS
   [x] 4. Live Data Dashboard
   [x] 5. Gravity Sandbox
   [x] 6. Maze Generator & Solver
-  [] 7. Geo-Journal
+  [x] 7. Adventure's Log ----> Things Remaining (Fixing the UI for the pop up modal when we access the record from the log)
   [] 8. Particle Orchestra
 [] Phase 5: Testing, Tooling & Professional Practices
   [] 1. Custom Form-Validator Library
