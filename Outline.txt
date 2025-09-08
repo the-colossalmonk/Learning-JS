@@ -26,7 +26,7 @@ Learning JS
   [x] 5. Crypto Market Dashboard
   [x] 6. Visual Feed Curator
   [x] 7. Collaborative Code-Sketch Canvas
-[] Phase 4: Canvas & Advanced Browser APIs
+[x] Phase 4: Canvas & Advanced Browser APIs
   [x] 1. Photo Filter Studio
   [x] 2. Collaborative Pixel Painter ----> Things Remaining (Fix the Multiplayer and the GIF output, make a Readme)
   [x] 3. Animated Bar Chart from JSON
@@ -34,9 +34,9 @@ Learning JS
   [x] 5. Gravity Sandbox
   [x] 6. Maze Generator & Solver
   [x] 7. Adventure's Log ----> Things Remaining (Fixing the UI for the pop up modal when we access the record from the log)
-  [] 8. Particle Orchestra
+  [x] 8. Light Particle Show
 [] Phase 5: Testing, Tooling & Professional Practices
-  [] 1. Custom Form-Validator Library
+  [x] 1. Custom Form-Validator Library
   [] 2. CLI File Organizer
   [] 3. Performance Audit Report Generator
   [] 4. Project Template Generator CLI

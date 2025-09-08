@@ -1,0 +1,105 @@
+:root {
+    --bg-color: #f4f7f9;
+    --card-bg-color: #ffffff;
+    --primary-text-color: #1f2937;
+    --secondary-text-color: #6b7280;
+    --border-color: #e5e7eb;
+    --accent-color: #6366f1;
+    --error-color: #ef4444;
+    --success-color: #22c55e;
+    --font-sans: 'Poppins', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    min-height: 100vh;
+}
+
+/* --- Layout --- */
+.showcase-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+.form-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.inspector-panel {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-left: 1px solid var(--border-color);
+}
+
+/* --- Form Styles (from previous step) --- */
+.form-container { width: 100%; max-width: 450px; }
+h2 { text-align: center; margin-bottom: 2rem; }
+.form-group { margin-bottom: 1.5rem; position: relative; }
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%; padding: 0.75rem; border: 1px solid var(--border-color);
+    border-radius: 8px; font-size: 1rem; transition: all 0.2s ease;
+}
+input:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); }
+.error-message { color: var(--error-color); font-size: 0.8rem; margin-top: 0.25rem; min-height: 1.2em; }
+input.invalid { border-color: var(--error-color); }
+input.invalid:focus { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+input.valid { border-color: var(--success-color); }
+input.valid:focus { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); }
+.checkbox-group { display: flex; align-items: center; }
+.checkbox-group input { margin-right: 0.5rem; }
+.checkbox-group label { margin-bottom: 0; font-weight: 400; }
+.checkbox-group a { color: var(--accent-color); text-decoration: none; }
+.btn { width: 100%; padding: 0.85rem; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+.btn:hover { background-color: #4338ca; }
+
+/* --- Inspector Panel Styles --- */
+.inspector-intro {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+}
+.inspector-content.placeholder {
+    text-align: center;
+    color: var(--secondary-text-color);
+    padding: 4rem 0;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+}
+#field-name { font-family: var(--font-mono); color: var(--accent-color); }
+#validation-rules { list-style: none; padding: 0; margin-top: 1rem; }
+.rule-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+}
+.rule-item .status-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Rule Statuses */
+.rule-item.pending .status-icon::before { content: '⚪'; }
+.rule-item.checking .status-icon::before { content: '⏳'; animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.rule-item.pass .status-icon::before { content: '✅'; }
+.rule-item.fail .status-icon::before { content: '❌'; }
+.rule-item.pass { border-color: var(--success-color); background-color: #f0fdf4; }
+.rule-item.fail { border-color: var(--error-color); background-color: #fef2f2; }
