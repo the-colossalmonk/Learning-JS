@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Project Scaffolding Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Left Panel: Configuration -->
+        <aside class="config-panel">
+            <header>
+                <h1>Project Scaffolder</h1>
+                <p>Customize your starter kit and download a .zip file instantly.</p>
+            </header>
+
+            <form id="generator-form">
+                <div class="presets-section">
+                    <label>Quick Start Presets</label>
+                    <div class="presets-group">
+                        <button type="button" class="preset-btn" data-preset="react-ts-tailwind">React + TS + Tailwind</button>
+                        <button type="button" class="preset-btn" data-preset="vanilla">Basic Vanilla JS</button>
+                        <button type="button" class="preset-btn" data-preset="three">Three.js Starter</button>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Project Details</legend>
+                    <div class="form-group">
+                        <label for="project-name">Project Name</label>
+                        <input type="text" id="project-name" name="projectName" value="my-awesome-project" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Framework</legend>
+                    <div class="template-selector">
+                        <label class="template-option">
+                            <input type="radio" name="framework" value="vanilla" checked>
+                            <div class="option-card"><strong>Vanilla</strong><small>No framework. Plain HTML, CSS, JS.</small></div>
+                        </label>
+                        <label class="template-option">
+                            <input type="radio" name="framework" value="react">
+                            <div class="option-card"><strong>React</strong><small>A component-based UI library.</small></div>
+                        </label>
+                        <label class="template-option">
+                            <input type="radio" name="framework" value="three">
+                            <div class="option-card"><strong>Three.js</strong><small>A 3D graphics starter kit.</small></div>
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <fieldset id="language-fieldset">
+                    <legend>Language</legend>
+                     <div class="template-selector">
+                        <label class="template-option">
+                            <input type="radio" name="language" value="js" checked>
+                            <div class="option-card"><strong>JavaScript</strong><small>.js / .jsx</small></div>
+                        </label>
+                        <label class="template-option">
+                            <input type="radio" name="language" value="ts">
+                            <div class="option-card"><strong>TypeScript</strong><small>.ts / .tsx</small></div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="features-fieldset">
+                    <legend>Add-ons & Tooling</legend>
+                    <div class="feature-toggles">
+                        <label class="toggle-switch"><input type="checkbox" name="features" value="tailwind">Tailwind CSS</label>
+                        <label class="toggle-switch"><input type="checkbox" name="features" value="prettier" checked>Prettier Config</label>
+                        <label class="toggle-switch"><input type="checkbox" name="features" value="gitignore" checked>Include .gitignore</label>
+                    </div>
+                </fieldset>
+
+                <div class="action-buttons">
+                    <button id="generate-btn" type="submit" class="btn btn-primary">Generate Project</button>
+                    <button id="share-btn" type="button" class="btn btn-secondary">Copy Share Link</button>
+                </div>
+            </form>
+        </aside>
+
+        <!-- Right Panel: Live Preview -->
+        <main class="preview-panel">
+            <h2>Live File Preview</h2>
+            <div id="file-preview-container" class="file-preview-container">
+                <!-- File structure will be rendered here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Installation Simulation Modal -->
+    <div id="install-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="terminal">
+                <div id="terminal-output" class="terminal-output"></div>
+                <div class="terminal-footer">
+                    <button id="download-btn" class="btn btn-primary hidden">Download .zip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSZip library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

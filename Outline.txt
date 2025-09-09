@@ -39,7 +39,7 @@ Learning JS
   [x] 1. Custom Form-Validator Library
   [x] 2. Browser Based File Organizer
   [x] 3. Performance Analyzer
-  [] 4. Project Template Generator CLI
+  [x] 4. Project Kit Generator
   [] 5. Custom ESLint Rule Engine
 [] Phase 6: Expert Level—Architecture & Patterns
   [] 1. Plugin-Driven Dashboard
