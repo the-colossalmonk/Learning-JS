@@ -40,7 +40,10 @@ Learning JS
   [x] 2. Browser Based File Organizer
   [x] 3. Performance Analyzer
   [x] 4. Project Kit Generator
-  [] 5. Custom ESLint Rule Engine
+  [x] 5. Custom ESLint Rule Engine ----> Thigns Remaining (Hover help, CSS, Apply Fix and Other Fix buttons not working)
+  [] 6. Interactive Code Formatter
+  [] 7. Visual Git Branching Simulator
+  [] 8. The Component Showcase & Testing Sandbox
 [] Phase 6: Expert Level—Architecture & Patterns
   [] 1. Plugin-Driven Dashboard
   [] 2. Web Component Blog

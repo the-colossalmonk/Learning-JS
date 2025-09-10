@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive AST Explorer & Linter</title>
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/material-darker.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Left Panel: Code & Errors -->
+        <main class="panel code-panel">
+            <header><h3>Code Editor</h3></header>
+            <div class="editor-container">
+                <textarea id="code-editor"></textarea>
+            </div>
+            <div class="errors-container">
+                <header class="errors-header">
+                    <h4>Errors (<span id="error-count">0</span>)</h4>
+                    <button id="apply-fixes-btn" class="btn btn-secondary" disabled>Apply All Fixes</button>
+                </header>
+                <ul id="errors-list" class="errors-list scrollable"></ul>
+            </div>
+        </main>
+
+        <!-- Middle Panel: AST Explorer -->
+        <aside class="panel ast-panel">
+            <header><h3>Abstract Syntax Tree (AST) Explorer</h3></header>
+            <div id="ast-container" class="ast-container scrollable">
+                <p class="placeholder">Your code's structure will appear here...</p>
+            </div>
+        </aside>
+
+        <!-- Right Panel: Linter Controls -->
+        <aside class="panel linter-panel">
+            <header class="rules-header">
+                <h2>Linter Guide</h2>
+                <button id="help-btn" class="help-btn">What is a Linter? ⓘ</button>
+            </header>
+            <div class="scrollable-content">
+                <div class="panel-section">
+                    <h4>Linting Rules</h4>
+                    <div id="rules-container" class="rules-container">
+                        <!-- Rule cards will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h4>Custom Rule Creator</h4>
+                    <form id="custom-rule-form">
+                        <input type="text" id="custom-rule-id" placeholder="Rule ID (e.g., no-magic-numbers)" required>
+                        <select id="custom-rule-node-type" required></select>
+                        <textarea id="custom-rule-logic" placeholder="e.g., if (node.operator === '==') { context.report(...) }" rows="4" required></textarea>
+                        <button type="submit" class="btn">Add Custom Rule</button>
+                    </form>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Rule Info Popover (positioned by JS) -->
+    <div id="rule-popover" class="popover hidden"></div>
+    
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+            <h2>What is a Linter?</h2>
+            <p>A "linter" is a tool that analyzes your code for potential errors, style inconsistencies, and bad practices **without actually running it**. This is called static code analysis.</p>
+            <h3>How Does It Work?</h3>
+            <p>1. <strong>Parsing:</strong> The linter reads your code and turns it into a structured data format called an Abstract Syntax Tree (AST). This tree represents the code's structure, like a grammatical breakdown of a sentence.</p>
+            <p>2. <strong>Traversing:</strong> It then "walks" through this tree, visiting each part of your code (variables, functions, loops, etc.).</p>
+            <p>3. <strong>Applying Rules:</strong> At each step, it checks the code against a set of predefined rules. If it finds code that breaks a rule (like using `var` instead of `let`), it reports an error.</p>
+            <h3>Why is it Useful?</h3>
+            <ul>
+                <li>✅ Catches common bugs and typos before you run your code.</li>
+                <li>✅ Enforces a consistent coding style across a team.</li>
+                <li>✅ Teaches best practices and helps avoid problematic language features.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/javascript/javascript.min.js"></script>
+    <script src="https://unpkg.com/acorn@8.10.0/dist/acorn.js"></script>
+    
+    <!-- Our Scripts -->
+    <script src="script.js" type="module"></script>
+</body>
+</html>
